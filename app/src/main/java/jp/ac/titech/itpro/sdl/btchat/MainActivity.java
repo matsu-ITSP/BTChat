@@ -308,8 +308,8 @@ public class MainActivity extends AppCompatActivity {
             long time = System.currentTimeMillis();
             ChatMessage message = new ChatMessage(message_seq, time, content, devName);
             commThread.send(message);
-            chatLogAdapter.add(message);
-            chatLogAdapter.notifyDataSetChanged();
+            //chatLogAdapter.add(message);
+            //chatLogAdapter.notifyDataSetChanged();
             chatLogView.smoothScrollToPosition(chatLog.size());
             inputText.getEditableText().clear();
         }
@@ -715,10 +715,11 @@ public class MainActivity extends AppCompatActivity {
     private void showMessage(ChatMessage message) {
         if(message.content.equals("sound")) {
             soundPool.play(sound_sender, 1.0f, 1.0f, 0, 0, 1);
+        }else {
+            chatLogAdapter.add(message);
+            chatLogAdapter.notifyDataSetChanged();
+            chatLogView.smoothScrollToPosition(chatLogAdapter.getCount());
         }
-        chatLogAdapter.add(message);
-        chatLogAdapter.notifyDataSetChanged();
-        chatLogView.smoothScrollToPosition(chatLogAdapter.getCount());
 
     }
 

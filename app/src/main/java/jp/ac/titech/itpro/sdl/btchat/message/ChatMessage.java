@@ -20,6 +20,7 @@ public class ChatMessage implements Parcelable {
         this.time = time;
         this.content = content;
         this.sender = sender;
+        this.isSound = false;
     }
 
     private ChatMessage(Parcel in) {
