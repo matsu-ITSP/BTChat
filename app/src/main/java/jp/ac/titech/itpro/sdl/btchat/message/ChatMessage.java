@@ -13,6 +13,7 @@ public class ChatMessage implements Parcelable {
     public long time;
     public String content;
     public String sender;
+    public Boolean isSound;
 
     public ChatMessage(int seq, long time, String content, String sender) {
         this.seq = seq;
